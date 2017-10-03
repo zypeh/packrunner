@@ -1,7 +1,6 @@
 # packrunner
 
 This project is currently under construction
-prpr - purely functional Package manager, aiming to 
 
 ## SYNOPSIS
 `prpr command [arguments]`
