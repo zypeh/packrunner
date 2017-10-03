@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import Packrunner (packrunner)
 
 main :: IO ()
-main = someFunc
+main = packrunner

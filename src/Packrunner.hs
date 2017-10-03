@@ -1,0 +1,27 @@
+module Packrunner (packrunner) where
+
+import Data.List
+import System.Environment
+
+import Paths_packrunner (version)
+import Data.Version (showVersion)
+
+packrunner :: IO ()
+packrunner = do
+    args <- getArgs
+    case args of
+        ["help"] -> usage
+        ["version"] -> putStrLn $ unwords prVersion
+        _ -> usage
+    where
+        prVersion = ["Packrunner (prpr)", showVersion version]
+
+usage :: IO ()
+usage = do
+    prog <- getProgName
+    putStr . unlines $
+        concat ["Usage: ", prog, " [OPTION]"] : [
+        "COMMANDS ",
+        "    help                Print this message",
+        "    version             Print the version number"
+        ]
