@@ -1,37 +1,71 @@
-name:                packrunner
-version:             0.1.0.0
-synopsis:            prpr command [arguments]
-description:         Packrunner is a simple, purely functional package manager which is inspired by port utility and `nix` package manager system.
-homepage:            https://github.com/zypeh/packrunner#readme
-license:             Apache-2.0
-license-file:        LICENSE
-author:              zypeh
-maintainer:          zypeh.geek@gmail.com
-copyright:           BSD-2
-category:            System
-build-type:          Simple
-extra-source-files:  README.md
-cabal-version:       >=1.10
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 860ff376f564a690fe7964a8698a739811e8f922c2d1e2b1a9bd9ae679203694
 
-library
-  hs-source-dirs:      src
-  exposed-modules:     Packrunner
-                     , Packrunner.Pull
-  other-modules:       Paths_packrunner
-  build-depends:       base >= 4.7 && < 5
-                     , bytestring
-                     , download
-                     , either-unwrap
-  default-language:    Haskell2010
+name:           packrunner
+version:        0.1.0.0
+description:    Packrunner is a simple, purely functional package manager which is inspired by port utility and `nix` package manager system.
+homepage:       https://github.com/zypeh/packrunner#readme
+bug-reports:    https://github.com/zypeh/packrunner/issues
+author:         zypeh
+maintainer:     zypeh.geek@gmail.com
+copyright:      BSD-2
+license:        BSD2
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
 
-executable prpr
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
-                     , packrunner
-  default-language:    Haskell2010
+extra-source-files:
+    README.md
 
 source-repository head
-  type:     git
+  type: git
   location: https://github.com/zypeh/packrunner
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , download
+    , either-unwrap
+  exposed-modules:
+      Packrunner
+      Packrunner.Pull
+  other-modules:
+      Paths_packrunner
+  default-language: Haskell2010
+
+executable prpr
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , download
+    , either-unwrap
+    , packrunner
+  other-modules:
+      Paths_packrunner
+  default-language: Haskell2010
+
+test-suite packrunner-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , download
+    , either-unwrap
+    , packrunner
+  other-modules:
+      Paths_packrunner
+  default-language: Haskell2010

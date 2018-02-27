@@ -1,0 +1,51 @@
+name:                packrunner
+version:             0.1.0.0
+github:              "zypeh/packrunner"
+license:             BSD2
+author:              "zypeh"
+maintainer:          "zypeh.geek@gmail.com"
+copyright:           "BSD-2"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Packrunner is a simple, purely functional package manager which is inspired by port utility and `nix` package manager system.
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- download
+- either-unwrap
+
+library:
+  source-dirs: src
+
+executables:
+  prpr:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - packrunner
+
+tests:
+  packrunner-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - packrunner

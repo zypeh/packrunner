@@ -2,10 +2,10 @@ module Packrunner (packrunner) where
 
 import Data.List
 import System.Environment
-
+    
 import Paths_packrunner (version)
 import Data.Version (showVersion)
-
+    
 import Packrunner.Pull (pull)
 
 packrunner :: IO ()
@@ -18,7 +18,7 @@ packrunner = do
         _ -> usage
     where
         prVersion = ["Packrunner (prpr)", showVersion version]
-
+    
 usage :: IO ()
 usage = do
     prog <- getProgName
@@ -29,3 +29,4 @@ usage = do
         "    version             Print the version number",
         "    pull                Pull from the registry"
         ]
+    
